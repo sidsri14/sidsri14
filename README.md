@@ -6,6 +6,7 @@ Software Engineer and BCA student at Manipal University Jaipur. I build Rust sys
 
 - Rust systems and low-latency infrastructure
 - LLM proxies, caching, and model routing
+- Local-first developer tools, CI/CD, and deployment contract safety
 - Backend platforms with PostgreSQL, Redis, queues, auth, webhooks, and payments
 - Full-stack SaaS products using TypeScript, React, Node.js, and modern deployment stacks
 
@@ -15,9 +16,9 @@ Software Engineer and BCA student at Manipal University Jaipur. I build Rust sys
 
 OpenAI-compatible Rust proxy for LLM cost control. Supports exact caching, opt-in semantic caching, opt-in model routing, admin metrics, transparent response headers, CI, release binaries, and benchmark scripts.
 
-### Argus-HFT-Core
+### [DriftGuard](https://github.com/sidsri14/driftguard)
 
-Rust low-latency trading infrastructure prototype exploring deterministic execution, zero-copy ingestion concepts, CPU pinning, execution/audit core separation, and HFT-oriented benchmarking.
+Released local-first Rust CLI that detects undocumented environment variables and gates changed AI prompts against JSON Schema contracts. Includes Git-diff scoping, JSON/Markdown reports, configuration diagnostics, pre-commit hooks, 26 automated tests, and Linux/macOS/Windows release binaries.
 
 ### PayRecover / Stripeflow
 
