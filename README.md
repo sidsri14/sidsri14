@@ -44,7 +44,6 @@
 ---
 
 ### 📬 Connect with Me
-- **Telegram**: [@sidsri14](https://t.me/sidsri14)
 - **Email**: `sidsri1502@gmail.com`
 - **X (Twitter)**: [@SidSri0228](https://x.com/SidSri0228)
 - **Interactive Career Hub**: [https://sidsri14.github.io/career-command-center](https://sidsri14.github.io/career-command-center)
