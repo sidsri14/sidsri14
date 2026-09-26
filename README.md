@@ -4,8 +4,7 @@
 
 ---
 
-```
-```
+
 
 [![Solana SVM](https://img.shields.io/badge/Solana-SVM_Engine-14F195?style=for-the-badge&logo=solana&logoColor=black)](https://github.com/sidsri14)
 [![Rust](https://img.shields.io/badge/Rust-Zero--Copy_Systems-dea584?style=for-the-badge&logo=rust&logoColor=black)](https://github.com/sidsri14)
