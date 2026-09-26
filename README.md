@@ -1,6 +1,6 @@
 # 👨‍💻 Siddharth Srivastava (`@sidsri14`)
 ### Rust, Solana SVM & AI Systems Engineer
-**Lucknow, India** · [Portfolio & Command Hub](https://sidsri14.github.io/career-command-center) · [LinkedIn](https://linkedin.com/in/siddharth-srivastava) · [X (@SidSri0228)](https://x.com/SidSri0228) · [Telegram (@sidsri14)](https://t.me/sidsri14)
+**Lucknow, India** · [Portfolio & Command Hub](https://sidsri14.github.io/career-command-center) · [LinkedIn](https://linkedin.com/in/siddharth-srivastava) · [X (@SidSri0228)](https://x.com/SidSri0228) ·
 
 ---
 
