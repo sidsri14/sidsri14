@@ -1,51 +1,57 @@
-# Siddharth (@sidsri14)
+# Siddharth Srivastava (`@sidsri14`)
 
-> Merged systems & security code in **DataDog**, **Nushell**, and **Tailscale** open-source tooling.
-> Specialist in low-latency **Rust proxies** and resilient **TypeScript backend pipelines**.
+Rust and TypeScript engineer focused on developer tooling, backend reliability,
+and open-source maintenance. Based in Lucknow, India; open to remote work.
 
-Independent systems consultant. Available for short-term retainers on data-plane, rate-limiting,
-and async-queue bottlenecks for early-stage engineering teams. — [Email](mailto:sidsri1502@gmail.com) ·
-[LinkedIn](https://linkedin.com/in/siddharth-srivastava) · [X (@SidSri0228)](https://x.com/SidSri0228) ·
-[Careers hub](https://sidsri14.github.io/career-command-center)
+Available for small, fixed-scope engineering engagements on backend reliability,
+API failures, and async-queue behavior.
 
----
+[Portfolio](https://sidsri14.github.io/career-command-center) · [LinkedIn](https://www.linkedin.com/in/siddharth-srivastava-529a21277/) · [GitHub](https://github.com/sidsri14) · [StackIntercept](https://stackintercept.com)
 
 ## Evidence: merged open-source contributions
 
 | Project | PR | What it did |
 | :--- | :--- | :--- |
-| **DataDog** / guarddog | [#827](https://github.com/DataDog/guarddog/pull/827) | Added Rust crates support to the supply-chain security scanner |
-| **Nushell** | [#18976](https://github.com/nushell/nushell/pull/18976) | Fixed error-stream propagation in `length`, `columns`, `is-empty` |
-| **Tailscale** / hujson | [#48](https://github.com/tailscale/hujson/pull/48) | Rejected ambiguous Unicode line separators in comments |
-| **OpenTelemetry** / python | [#5545](https://github.com/open-telemetry/opentelemetry-python/pull/5545) | Bound per-detector resource wait to the configured timeout |
-| **getsentry** / tacos-gha | [#319](https://github.com/getsentry/tacos-gha/pull/319) | Fixed dependent-slice planning when a slice is emptied |
-| **coder** / observability | [#83](https://github.com/coder/observability/pull/83) | Preserved unknown status when metrics are missing |
+| DataDog / guarddog | [#827](https://github.com/DataDog/guarddog/pull/827) | Added Rust crates support to the supply-chain security scanner |
+| Nushell | [#18976](https://github.com/nushell/nushell/pull/18976) | Fixed error-stream propagation in `length`, `columns`, and `is-empty` |
+| Tailscale / hujson | [#48](https://github.com/tailscale/hujson/pull/48) | Rejected ambiguous Unicode line separators in comments |
+| OpenTelemetry / python | [#5545](https://github.com/open-telemetry/opentelemetry-python/pull/5545) | Bound resource-detector waits to the configured timeout |
+| Temporal / sdk-typescript | [#2249](https://github.com/temporalio/sdk-typescript/pull/2249) | Preserved zero optional durations |
+| Grafana / gcx | [#1066](https://github.com/grafana/gcx/pull/1066) | Let environment credentials override a failed keychain lookup |
 
-More merged work in `yq`, `go-yaml`, `scalar`, `grafana/gcx`, `polars-stats`, `temporalio/sdk-typescript`.
-Active submissions in review: **ripgrep**, **fd**, **getsentry/json-schema-diff**.
+I have 20+ merged pull requests in projects outside my own account. I am also
+actively contributing to [LiteLLM](https://github.com/BerriAI/litellm/pull/40870).
 
----
+## Selected work
 
-## Flagship systems
+### StackIntercept
 
-| Project | What it is | Try it |
-| :--- | :--- | :---: |
-| **[stack-intercept](https://github.com/sidsri14/stack-intercept)** | Self-hosted Rust proxy for OpenAI-compatible APIs: caching, reactive failover, Prometheus metrics, Docker deployment | [Docker quickstart](https://github.com/sidsri14/stack-intercept#readme) |
-| **[reliable-mail](https://github.com/sidsri14/reliable-mail)** | TypeScript transactional email API: idempotency, retry workers, API-key auth, PostgreSQL/Redis-backed reliability | — |
-| **[Invoiceflow](https://github.com/sidsri14/Invoiceflow)** | Full-stack invoicing with payment workflows and client management | — |
+[StackIntercept](https://github.com/sidsri14/stack-intercept) is an
+OpenAI-compatible Rust reverse proxy. It provides deterministic exact-response
+caching, opt-in local semantic caching, conservative single-hop failover, and
+Prometheus metrics. The repository includes mock-upstream integration tests,
+a Docker trial profile, a local demo, and benchmark reproduction notes.
 
----
+### Tempo Z-Spend
 
-## Stack
+[Tempo Z-Spend](https://github.com/sidsri14/tempo-zspend) is a TypeScript/viem
+prototype for agent payment controls. It combines a fail-closed local policy
+engine with testnet access-key limits and scoped calls, so a compromised agent
+key cannot exceed the chain-enforced allowance.
 
-![Rust](https://img.shields.io/badge/Rust-1a1a2e?style=flat-square&logo=rust&logoColor=dea584)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white)
-![Redis](https://img.shields.io/badge/Redis-DC382D?style=flat-square&logo=redis&logoColor=white)
-![Prometheus](https://img.shields.io/badge/Prometheus-E6522C?style=flat-square&logo=prometheus&logoColor=white)
-![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black)
+## Core tools
 
-- **Rust**: tokio, actix, async systems, low-latency proxies, CLI tooling
-- **TypeScript / Node**: resilient pipelines, idempotent APIs, queue workers, observability
-- **Infra**: Docker Compose, Linux, Prometheus metrics, PostgreSQL/Redis data planes
+Rust, TypeScript, Node.js, Python, PostgreSQL, Redis, Docker, GitHub Actions,
+HTTP APIs, OpenAI-compatible SDKs, Prometheus, and Playwright.
+
+## Working style
+
+- Build reproducible fixes with focused tests and clear failure modes.
+- Prefer small, reviewable changes over speculative rewrites.
+- Document operating limits and rollback paths alongside features.
+
+## Contact
+
+Email: `sidsri1502@gmail.com`
+
+X: [@SidSri0228](https://x.com/SidSri0228)
