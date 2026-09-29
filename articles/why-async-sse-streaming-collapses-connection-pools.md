@@ -1,98 +1,83 @@
-# Why Async SSE Streaming Collapses Connection Pools Under TCP Backpressure
-### A Deep-Dive into Socket Starvation, Tokio Runtime Stalls, and Buffer Bloat in Reverse Proxies
+# A 200 Response Is Not a Complete SSE Response
 
----
+An LLM proxy can receive HTTP 200, forward several Server-Sent Event chunks,
+and still fail before the stream is complete. Treating the status code as proof
+of a cacheable response turns a transient upstream failure into a persistent,
+replayable partial answer.
 
-### 1. The Failure Mode: Slow Clients & Epoll Saturation
-When an upstream LLM or real-time event pipeline streams Server-Sent Events (SSE) at 60 tokens/second, standard asynchronous reverse proxies assume non-blocking socket writes are cheap. 
+I found this boundary while reviewing StackIntercept, a small Rust
+OpenAI-compatible proxy. It forwards upstream SSE bytes and stores successful
+responses in an exact cache. The initial implementation used the upstream HTTP
+status to decide whether to cache a stream. That is insufficient: after a 200,
+`bytes_stream()` can still yield an error because the upstream connection was
+truncated or reset.
 
-Under real network conditions (mobile clients, high-latency 4G/5G hops, or tab backgrounding), TCP window sizes shrink to near zero. When the client stops acknowledging packets (`TCP zero-window`), the operating system socket write buffer fills up.
+## The unsafe sequence
 
-In standard naive async handlers:
-```rust
-// ❌ Naive async loop: Allocates and queues unboundedly
-while let Some(chunk) = upstream_stream.next().await {
-    // If the client TCP socket is blocked, this await yields back to Tokio,
-    // but the upstream continues streaming, buffering unconsumed chunks in memory.
-    client_writer.write_all(&chunk).await?; 
-}
+1. The upstream returns 200 and starts a streamed completion.
+2. The proxy forwards a few valid `data:` frames.
+3. The upstream connection breaks before `[DONE]`.
+4. The proxy sends the client a terminal SSE error frame.
+5. The proxy caches the bytes collected before the error because the initial
+   status was successful.
+
+The next identical request can then receive a cache hit containing an
+incomplete completion, without any indication that it was partial.
+
+## The required invariant
+
+For a streamed response, cache insertion needs two conditions:
+
+```text
+initial HTTP response is successful
+AND
+the body stream completed without an error
 ```
 
-#### What Happens Under the Hood:
-1. **Unbounded In-Memory Backlog**: The proxy continues pulling from the upstream provider (e.g. Anthropic/OpenAI) at full wire speed while the client read socket is stalled.
-2. **Buffer Bloat & RSS Spike**: Each stalled client accumulates 50KB–2MB of un-flushed chunk buffers in RAM. At 2,000 concurrent stalled streams, memory climbs by >3 GB.
-3. **Tokio Worker Starvation**: When thousands of tasks are continuously woken by `epoll` writable events that immediately return `EWOULDBLOCK` or partial writes (1–4 bytes), worker threads burn 100% CPU in poll thrashing instead of processing new incoming connections.
+StackIntercept now tracks stream completion separately from the HTTP status. On
+a chunk error, it forwards an SSE error frame and marks the stream incomplete.
+The terminal cache-insertion step checks that marker before inserting into the
+exact or semantic cache.
 
----
+The relevant implementation is in
+[`src/main.rs`](https://github.com/sidsri14/stack-intercept/blob/master/src/main.rs),
+and the regression test is in
+[`test_persistence_eviction_sse.py`](https://github.com/sidsri14/stack-intercept/blob/master/test_persistence_eviction_sse.py).
+The test serves a deliberately truncated SSE body with a larger declared
+`Content-Length`, verifies that the client receives an error frame and `[DONE]`,
+then verifies the next identical request is a cache miss rather than a replay
+of partial data.
 
-### 2. Flamegraph & Memory Anatomy
+## Where failover stops
 
-```
-[ Incoming Request ] ──► [ Tokio Worker Thread ]
-                                │
-   ┌────────────────────────────┴───────────────────────────┐
-   ▼                                                        ▼
-[ Fast Client ]                                     [ Slow TCP Client ]
-├─ Writable: YES                                    ├─ TCP Window: 0 Bytes
-├─ Write 4KB Buffer ──► Immediate ACK               ├─ write_all().await ──► EWOULDBLOCK
-└─ RSS: 14 KB                                       ├─ Upstream keeps pushing chunks
-                                                    ├─ Internal Buffer: 1.8 MB (BLOCKED)
-                                                    └─ CPU: Poll-thrashing in epoll loop
-```
+StackIntercept's configured fallback is intentionally a single retry before a
+stream has produced body bytes: a connection failure, 429, or configured 5xx
+status can select the fallback request. It does not retry after partial stream
+output. Restarting a different model response after visible tokens have reached
+the client changes the response contract and can duplicate side effects in
+tool-using workflows.
 
----
+That is a reliability boundary, not a complete high-availability system. The
+project does not currently provide circuit breaking, health-based load
+balancing, rate limiting, or spend caps.
 
-### 3. The Fix: Bounded Credit-Based Backpressure & Zero-Allocation Ring Buffers
+## What this does not prove
 
-To prevent socket starvation and memory leaks, the reverse proxy must couple the upstream read cadence directly to the downstream TCP socket drain rate:
+This change does not make any claim about TCP backpressure, connection-pool
+behavior, zero-copy operation, or throughput under slow clients. The current
+streaming path accumulates a completed response before caching it, so it should
+be evaluated with explicit response-size limits and load tests before making
+performance claims. The evidence here is narrower: a truncated upstream stream
+will not poison the cache.
 
-```rust
-// ✅ Zero-Copy Bounded Stream with Strict TCP Flow Coupling
-use bytes::BytesMut;
-use tokio::io::AsyncWriteExt;
-use tokio::sync::mpsc;
+## Reproduce
 
-pub async fn pipe_with_backpressure<R, W>(
-    mut upstream: R,
-    mut client_writer: W,
-    buffer_cap: usize,
-) -> Result<(), Box<dyn std::error::Error>>
-where
-    R: futures::Stream<Item = Result<bytes::Bytes, reqwest::Error>> + Unpin,
-    W: AsyncWriteExt + Unpin,
-{
-    // Bounded channel enforces hard backpressure: upstream stops reading when channel is full
-    let (tx, mut rx) = mpsc::channel::<bytes::Bytes>(buffer_cap);
+From the StackIntercept repository:
 
-    // Drain task tightly bound to client socket
-    while let Some(chunk) = rx.recv().await {
-        client_writer.write_all(&chunk).await?;
-        client_writer.flush().await?; // Force TCP buffer drain before yielding
-    }
-    Ok(())
-}
+```powershell
+cargo build
+python test_persistence_eviction_sse.py
 ```
 
----
-
-### 4. Benchmark & Profiling Comparison
-
-| Metric under 2,000 Concurrent Streams (50% Degraded TCP) | Naive Async Proxy | Bounded Zero-Allocation Proxy | Delta |
-| :--- | :--- | :--- | :--- |
-| **p99 Tail Latency** | `184.2 ms` | `24.1 ms` | **-86.9%** |
-| **Resident Memory (RSS)** | `1,840 MB` | `18.5 MB` | **-99.0%** |
-| **Connection Drop Rate (504 Gateway Timeout)** | `14.2%` | `0.00%` | **100% Reliability** |
-| **CPU Utilization (4 Cores)** | `94.8%` | `11.2%` | **-88.1% CPU** |
-
----
-
-### 5. Reproducing the Teardown Locally
-
-```bash
-# Run local synthetic TCP window clamp harness (Node/Rust)
-node D:/distro/benchmarks/benchmark_harness.mjs
-```
-
----
-
-*Author: Siddharth Srivastava (`@sidsri14`) — Systems & infrastructure engineer specializing in low-latency network proxies, Tokio async performance, and Web3 risk engines (github.com/sidsri14). Available for contract advisory and systems optimization.*
+The suite uses only a local mock upstream and includes the truncated-stream
+case alongside cache persistence and SSE error-frame checks.
