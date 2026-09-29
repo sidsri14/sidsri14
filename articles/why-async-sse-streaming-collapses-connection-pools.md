@@ -1,4 +1,4 @@
-# A 200 Response Is Not a Complete SSE Response
+# Silent Cache Poisoning in LLM Streaming Proxies
 
 An LLM proxy can receive HTTP 200, forward several Server-Sent Event chunks,
 and still fail before the stream is complete. Treating the status code as proof
