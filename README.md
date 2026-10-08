@@ -1,64 +1,60 @@
 # Siddharth Srivastava (`@sidsri14`)
 
-**Systems & LLM Infrastructure Engineer** building low-latency Rust proxies, deterministic AI gateway controls, and reliable TypeScript backends. Creator of **[StackIntercept](https://github.com/sidsri14/stack-intercept)**.
+Open-source systems and LLM tooling developer based in Lucknow, India. I build
+reliable Rust and TypeScript systems, and I contribute focused fixes upstream.
 
-Based in Lucknow, India · **Open to remote full-time & high-impact contract roles worldwide** (US/EU/APAC async-friendly).
+Open to remote full-time, contract, and relocation-supported software roles.
 
-[Portfolio](https://sidsri14.github.io/career-command-center) · [LinkedIn](https://www.linkedin.com/in/siddharth-srivastava-529a21277/) · [GitHub](https://github.com/sidsri14) · [StackIntercept](https://stackintercept.com) · [Email](mailto:sidsri1502@gmail.com)
+[Portfolio](https://sidsri14.github.io/career-command-center) | [LinkedIn](https://www.linkedin.com/in/siddharth-srivastava-529a21277/) | [StackIntercept](https://stackintercept.com) | [Email](mailto:sidsri1502@gmail.com)
 
----
+## Selected Work
 
-## 🏆 Standout Project: StackIntercept
+### [StackIntercept](https://github.com/sidsri14/stack-intercept)
 
-**[StackIntercept](https://github.com/sidsri14/stack-intercept)** is an ultra-low-latency, self-hosted streaming reverse proxy for OpenAI-compatible LLM inference APIs, engineered in Rust on Tokio and Hyper.
+A Rust proxy for OpenAI-compatible LLM APIs with exact and semantic caching,
+reactive failover, Prometheus metrics, and tenant isolation. The repository
+has 38 Rust tests and 79 assertion macros. It is designed for teams that want
+to inspect cache behavior and upstream failures without moving prompts outside
+their own deployment.
 
-- **Sub-Millisecond Overhead**: Delivers `<0.8ms p99` latency on streaming Server-Sent Events (SSE) token pass-through.
-- **Cost & Latency Reduction**: Exact-match & SIMD-accelerated semantic caching prevents redundant upstream GPU token billing.
-- **High Availability**: Single-hop reactive upstream failover (switches from primary to fallback provider in `<5ms` upon HTTP 5xx or rate limit).
-- **Client Disconnect Protection**: Detects aborted client connections instantly to cancel upstream GPU generation, stopping phantom billing loops.
-- **Production Observability**: Built-in Prometheus metrics (`inference_latency_seconds`, `cache_hit_ratio`, `token_throughput_total`), Docker Compose profile, and mock-upstream integration test suite.
+### [Tempo Z-Spend](https://github.com/sidsri14/tempo-zspend)
 
----
+An agent spend-control prototype that enforces per-agent, per-window USDC
+limits in code. Its five local suites contain 31 passing tests across policy,
+Monad, Arc, BSC, and control-plane paths. It is prototype work, not a deployed
+financial product.
 
-## 🛡️ Enterprise Open-Source Contributions (Merged Upstream)
+### [SolSentinel](https://github.com/sidsri14/solsentinel)
 
-Verifiable evidence of production code contributions merged into high-visibility security and developer infrastructure codebases:
+Static analysis tooling for Solana programs. It detects 10 documented
+vulnerability classes and is intended as a practical security-review aid.
 
-| Organization / Repository | Pull Request | Impact & Technical Delivery |
-| :--- | :--- | :--- |
-| **DataDog** / `guarddog` | [#827](https://github.com/DataDog/guarddog/pull/827) | Implemented Rust/crates.io support for supply-chain malware scanning (467 tests passing) |
-| **Tailscale** / `hujson` | [#48](https://github.com/tailscale/hujson/pull/48) | Hardened parser by rejecting ambiguous Unicode line separators in comments |
-| **Sentry** / `tacos-gha` | [#319](https://github.com/getsentry/tacos-gha/pull/319) | Resolved deletion-path `KeyError` in CI workflows with strict typing and regression proof |
-| **OpenTelemetry** / `opentelemetry-python` | [#5545](https://github.com/open-telemetry/opentelemetry-python/pull/5545) | Bound resource-detector waits to configured timeout, preventing process hang |
-| **Nushell** / `nushell` | [#18976](https://github.com/nushell/nushell/pull/18976) | Fixed error-stream propagation across `length`, `columns`, and `is-empty` pipeline commands |
-| **Temporal** / `sdk-typescript` | [#2249](https://github.com/temporalio/sdk-typescript/pull/2249) | Preserved zero-value optional duration parameters in workflow dispatch |
-| **Grafana** / `gcx` | [#1066](https://github.com/grafana/gcx/pull/1066) | Allowed environment credentials to safely override failed OS keychain lookups |
+## Upstream Contributions
 
-*Active contributor across AI infrastructure tooling including [LiteLLM](https://github.com/BerriAI/litellm).*
+20 merged pull requests across 18 organizations, including:
 
----
+| Repository | Merged contribution |
+| --- | --- |
+| [DataDog/guarddog](https://github.com/DataDog/guarddog/pull/827) | Rust/crates.io support for supply-chain malware scanning |
+| [tailscale/hujson](https://github.com/tailscale/hujson/pull/48) | Parser handling for ambiguous Unicode line separators |
+| [getsentry/tacos-gha](https://github.com/getsentry/tacos-gha/pull/319) | Regression fix for a deletion-path `KeyError` in CI workflows |
+| [open-telemetry/opentelemetry-python](https://github.com/open-telemetry/opentelemetry-python/pull/5545) | Bounded resource-detector waits to configured timeout |
+| [nushell/nushell](https://github.com/nushell/nushell/pull/18976) | Error-stream propagation across pipeline commands |
+| [temporalio/sdk-typescript](https://github.com/temporalio/sdk-typescript/pull/2249) | Preserved zero-value optional durations in workflow dispatch |
+| [grafana/gcx](https://github.com/grafana/gcx/pull/1066) | Safer environment-credential behavior after OS keychain lookup failure |
 
-## ⚡ Additional Selected Systems
+I also have active contributions in flight for projects including LiteLLM,
+OpenTelemetry, Grafana, and Sentry.
 
-### [Tempo Z-Spend](https://github.com/sidsri14/tempo-zspend) — Autonomous Agent Spend Rails
-Deterministic risk containment middleware for autonomous AI agents. Combines a fail-closed local policy engine with rolling epoch budget caps and HTTP 402 / x402 micropayments (verified across EVM, Solana, Celo, and Arbitrum Stylus).
+## Technical Focus
 
-### [Solana Stealth Shield](https://github.com/sidsri14/solana-stealth-shield) — Low-Level Privacy Infrastructure
-Zero-knowledge stealth transaction coordinator and ephemeral key isolation on high-throughput blockchain networks.
+- Rust, TypeScript, Node.js, Python, Go
+- Async services, HTTP/SSE streaming, API design, testing, debugging
+- PostgreSQL, Redis, Docker, Prometheus, Linux, GitHub Actions
+- LLM gateway patterns, caching, failover, and observability
 
----
+## Contact
 
-## 🛠️ Core Engineering Stack
-
-- **Systems & Languages**: Rust (`tokio`, `hyper`, `axum`), TypeScript, Node.js, Python, Go.
-- **AI & LLM Infrastructure**: OpenAI API, Anthropic, LiteLLM, vLLM, Ollama, SSE Streaming, Prompt Caching, MCP (Model Context Protocol).
-- **Backend & Data**: PostgreSQL, Redis, Docker, Prometheus, Grafana, GitHub Actions, Linux.
-
----
-
-## 📬 Contact & Availability
-
-- **Status**: Available for **remote full-time roles**, **advisory engagements**, and **AI infrastructure / backend reliability contracts**.
-- **Email**: `sidsri1502@gmail.com`
-- **X / Twitter**: [@SidSri0228](https://x.com/SidSri0228)
-- **LinkedIn**: [siddharth-srivastava](https://www.linkedin.com/in/siddharth-srivastava-529a21277/)
+- Email: `sidsri1502@gmail.com`
+- X: [@SidSri0228](https://x.com/SidSri0228)
+- LinkedIn: [siddharth-srivastava](https://www.linkedin.com/in/siddharth-srivastava-529a21277/)
