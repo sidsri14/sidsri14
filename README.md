@@ -43,6 +43,11 @@ vulnerability classes and is intended as a practical security-review aid.
 | [temporalio/sdk-typescript](https://github.com/temporalio/sdk-typescript/pull/2249) | Preserved zero-value optional durations in workflow dispatch |
 | [grafana/gcx](https://github.com/grafana/gcx/pull/1066) | Safer environment-credential behavior after OS keychain lookup failure |
 
+## 📚 Technical Writing & Articles
+
+- [**20 Merged PRs Across 18 OSS Organizations: A Deep Dive into Real-World Upstream Engineering**](articles/20-merged-prs-across-18-oss-orgs.md) — Detailed catalog of root causes, fixes, and lessons from Datadog, Tailscale, Sentry, OpenTelemetry, Temporal, and Grafana.
+- [**Why Async SSE Streaming Collapses Reverse Proxy Connection Pools (and How to Fix It in Rust)**](articles/why-async-sse-streaming-collapses-connection-pools.md) — Deep architectural teardown on LLM token streaming, client disconnection TCP socket leaks, and backpressure handling with Tokio & Axum.
+
 I also have active contributions in flight for projects including LiteLLM,
 OpenTelemetry, Grafana, and Sentry.
 
