@@ -17,6 +17,10 @@ has 38 Rust tests and 79 assertion macros. It is designed for teams that want
 to inspect cache behavior and upstream failures without moving prompts outside
 their own deployment.
 
+### [DriftGuard](https://github.com/sidsri14/driftguard)
+
+A local-first CI evaluation engine and pre-commit gate built in Rust. It catches missing environment variables, schema drift, and broken LLM output contracts before merge using Git-diff scoped AST scanning and strict JSON Schema validation.
+
 ### [Tempo Z-Spend](https://github.com/sidsri14/tempo-zspend)
 
 An agent spend-control prototype that enforces per-agent, per-window USDC
