@@ -7,7 +7,17 @@ Open to remote full-time, contract, and relocation-supported software roles.
 
 [Portfolio](https://sidsri14.github.io/career-command-center) | [LinkedIn](https://www.linkedin.com/in/siddharth-srivastava-529a21277/) | [StackIntercept](https://stackintercept.com) | [Email](mailto:sidsri1502@gmail.com)
 
-## Selected Work
+## Selected Work & Commercial Boilerplates
+
+### [Solana Anchor + Token-2022 Starter](https://github.com/sidsri14/solana-anchor-token2022-starter)
+[![Get Pro Edition on Polar](https://img.shields.io/badge/Polar.sh-Instant_Checkout_%2449-blue?style=flat&logo=github)](https://buy.polar.sh/polar_cl_4yZQH8N57BZNYhFowHUSqE4vvUAMzYXeA5r0f2zbD50)
+
+Production-grade Anchor 0.30+ monorepo engineered for Solana dApps with Token-2022 extensions, custom Transfer Hook CPI compliance enforcement, automated TypeScript client SDK with dynamic priority fee routing, and in-memory test suites.
+
+### [Resilient AI Worker Kit](https://github.com/sidsri14/resilient-ai-worker-kit)
+[![Get Pro Edition on Polar](https://img.shields.io/badge/Polar.sh-Instant_Checkout_%2439-blue?style=flat&logo=github)](https://buy.polar.sh/polar_cl_4mrUXvOPjiB4LEIEBsVyJshejMA8oq7XIHPQV163dbE)
+
+Fault-tolerant background AI agent queue built on Node.js, BullMQ, and Redis. Features real-time atomic token-budget kill switches and automatic multi-provider model failover (OpenAI -> Anthropic -> Groq) on 429/500 errors.
 
 ### [StackIntercept](https://github.com/sidsri14/stack-intercept)
 
@@ -49,6 +59,8 @@ vulnerability classes and is intended as a practical security-review aid.
 
 ## 📚 Technical Writing & Articles
 
+- [**Building Custom Royalty & Compliance Rules with Solana Token-2022 Transfer Hooks in Anchor 0.30+**](https://dev.to/sidsri14/building-custom-royalty-compliance-rules-with-solana-token-2022-transfer-hooks-in-anchor-030-1bm9) — In-depth architectural tutorial on SPL Transfer Hook CPI resolution, dynamic extra account metas, and fast deterministic testing.
+- [**Preventing Runaway LLM Bills: Building a Resilient AI Worker Queue with Redis, BullMQ, and Model Fallbacks**](https://dev.to/sidsri14/preventing-runaway-llm-bills-building-a-resilient-ai-worker-queue-with-redis-bullmq-and-model-23eh) — Guide to mitigating cascading rate limits and enforcing hard spending caps in agent queues.
 - [**Why Async SSE Streaming Collapses Reverse Proxy Connection Pools (and How to Fix It in Rust)**](articles/why-async-sse-streaming-collapses-connection-pools.md) — Deep architectural teardown on LLM token streaming, client disconnection TCP socket leaks, and backpressure handling with Tokio & Axum.
 - [**20 Merged PRs Across 18 OSS Organizations: A Deep Dive into Real-World Upstream Engineering**](articles/20-merged-prs-across-18-oss-orgs.md) — Detailed catalog of root causes, fixes, and lessons from Datadog, Tailscale, Sentry, OpenTelemetry, Temporal, and Grafana.
 - [**Silent Cache Poisoning in LLM Streaming Proxies**](articles/silent-cache-poisoning-in-llm-streaming-proxies.md) — How transient upstream stream truncation corrupts exact/semantic caches on HTTP 200, and how to enforce completion invariants.
@@ -63,8 +75,11 @@ OpenTelemetry, Grafana, and Sentry.
 - PostgreSQL, Redis, Docker, Prometheus, Linux, GitHub Actions
 - LLM gateway patterns, caching, failover, and observability
 
-## Contact
+## Contact & Consulting
 
 - Email: `sidsri1502@gmail.com`
 - X: [@SidSri0228](https://x.com/SidSri0228)
 - LinkedIn: [siddharth-srivastava](https://www.linkedin.com/in/siddharth-srivastava-529a21277/)
+- Arc / Codementor: [arc.dev/@sidsri929666](https://arc.dev/@sidsri929666?preview=1) (Available for Rust, Solana, and Systems Debugging)
+- Cantina Auditor Profile: [cantina.xyz/@sidsri14](https://cantina.xyz/)
+
