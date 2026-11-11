@@ -5,7 +5,7 @@ reliable Rust and TypeScript systems, and I contribute focused fixes upstream.
 
 Open to remote full-time, contract, and relocation-supported software roles.
 
-[Portfolio](https://sidsri14.github.io/career-command-center) | [LinkedIn](https://www.linkedin.com/in/siddharth-srivastava-529a21277/) | [StackIntercept](https://stackintercept.com) | [Email](mailto:sidsri1502@gmail.com)
+[Services & Kits](https://sidsri14.github.io) | [Upwork ($60/hr)](https://www.upwork.com/freelancers/~01f93f1a56b9ef1b8d) | [LinkedIn](https://www.linkedin.com/in/siddharth-srivastava-529a21277/) | [StackIntercept](https://stackintercept.com) | [Email](mailto:sidsri1502@gmail.com)
 
 ## Selected Work & Commercial Boilerplates
 
