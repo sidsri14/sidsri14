@@ -67,10 +67,11 @@ Static analysis tooling for Solana programs. It detects 10 documented vulnerabil
 ## 📚 Technical Writing & Articles
 
 - [**Building Custom Royalty & Compliance Rules with Solana Token-2022 Transfer Hooks in Anchor 0.30+**](https://dev.to/sidsri14/building-custom-royalty-compliance-rules-with-solana-token-2022-transfer-hooks-in-anchor-030-1bm9) — In-depth architectural tutorial on SPL Transfer Hook CPI resolution, dynamic extra account metas, and fast deterministic testing.
-- [**Preventing Runaway LLM Bills: Building a Resilient AI Worker Queue with Redis, BullMQ, and Model Fallbacks**](https://dev.to/sidsri14/preventing-runaway-llm-bills-building-a-resilient-ai-worker-queue-with-redis-bullmq-and-model-23eh) — Guide to mitigating cascading rate limits and enforcing hard spending caps in agent queues.
+- [**Preventing Runaway LLM Bills: Building a Resilient AI Worker Queue with Redis, BullMQ, and Model Fallbacks**](https://sidsri14.github.io/articles/prevent-runaway-llm-bills-bullmq.html) — Guide to mitigating cascading rate limits and enforcing hard spending caps in agent queues.
+- [**Cutting AI Inference Bills with Hybrid On-Device Routing**](https://sidsri14.github.io/articles/slash-ai-api-costs-hybrid-router.html) — Deterministic complexity/PII classification routing edge tasks locally while escalating complex calls cleanly.
 - [**Why Async SSE Streaming Collapses Reverse Proxy Connection Pools (and How to Fix It in Rust)**](articles/why-async-sse-streaming-collapses-connection-pools.md) — Deep architectural teardown on LLM token streaming, client disconnection TCP socket leaks, and backpressure handling with Tokio & Axum.
 - [**20 Merged PRs Across 18 OSS Organizations: A Deep Dive into Real-World Upstream Engineering**](articles/20-merged-prs-across-18-oss-orgs.md) — Detailed catalog of root causes, fixes, and lessons from Datadog, Tailscale, Sentry, OpenTelemetry, Temporal, and Grafana.
-- [**Silent Cache Poisoning in LLM Streaming Proxies**](articles/silent-cache-poisoning-in-llm-streaming-proxies.md) — How transient upstream stream truncation corrupts exact/semantic caches on HTTP 200, and how to enforce completion invariants.
+- [**Silent Cache Poisoning in LLM Streaming Proxies**](https://sidsri14.github.io/articles/silent-cache-poisoning-llm-proxies.html) — How transient upstream stream truncation corrupts exact/semantic caches on HTTP 200, and how to enforce completion invariants.
 
 Additional open-source contributions in review across `BerriAI/litellm`, `makeplane/plane`, `calcom/cal.diy`, `inngest/inngest-js`, `cadence-workflow/cadence`, and `BurntSushi/ripgrep`.
 
