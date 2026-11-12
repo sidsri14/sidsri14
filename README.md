@@ -49,11 +49,12 @@ Static analysis tooling for Solana programs. It detects 10 documented vulnerabil
 
 ## Upstream Contributions
 
-**22 merged pull requests** across external upstream open-source repositories, including:
+**23 merged pull requests** across external upstream open-source repositories, including:
 
 | Repository | Merged contribution |
 | --- | --- |
 | [BerriAI/litellm](https://github.com/BerriAI/litellm/pull/50073) | Bedrock Converse cross-model signed-thinking leak fix (`main`) |
+| [open-telemetry/opentelemetry-python-contrib](https://github.com/open-telemetry/opentelemetry-python-contrib/pull/5003) | Fix Celery span loss on worker child pool recycle (`main`) |
 | [open-telemetry/opentelemetry-python-contrib](https://github.com/open-telemetry/opentelemetry-python-contrib/pull/4982) | Restore logging handlers and formatters on `uninstrument()` (`main`) |
 | [open-telemetry/opentelemetry-python](https://github.com/open-telemetry/opentelemetry-python/pull/5545) | Bounded resource-detector waits to configured timeout |
 | [temporalio/sdk-typescript](https://github.com/temporalio/sdk-typescript/pull/2249) | Preserved zero-value optional durations in workflow dispatch |
