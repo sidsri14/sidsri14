@@ -7,7 +7,7 @@ experience.
 
 Available for remote, paid backend debugging and developer-tooling projects.
 
-[Upwork ($60/hr)](https://www.upwork.com/freelancers/~01f93f1a56b9ef1b8d) | [LinkedIn](https://www.linkedin.com/in/siddharth-srivastava-529a21277/) | [StackIntercept source](https://github.com/sidsri14/stack-intercept) | [Email](mailto:sidsri1502@gmail.com)
+[Paid projects on Upwork](https://www.upwork.com/freelancers/~01f93f1a56b9ef1b8d) | [LinkedIn](https://www.linkedin.com/in/siddharth-srivastava-529a21277/) | [StackIntercept source](https://github.com/sidsri14/stack-intercept) | [Email](mailto:sidsri1502@gmail.com)
 
 ## Start with a bounded paid task
 
