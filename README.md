@@ -7,7 +7,7 @@ experience.
 
 Available for remote, paid backend debugging and developer-tooling projects.
 
-[Paid projects on Upwork](https://www.upwork.com/freelancers/~01f93f1a56b9ef1b8d) | [LinkedIn](https://www.linkedin.com/in/siddharth-srivastava-529a21277/) | [StackIntercept source](https://github.com/sidsri14/stack-intercept) | [Email](mailto:sidsri1502@gmail.com)
+[Paid projects on Upwork](https://www.upwork.com/freelancers/~01f93f1a56b9ef1b8d) | [LinkedIn](https://www.linkedin.com/in/siddharth-srivastava-529a21277/) | [Sample LLM Cost Audit](https://sidsri14.github.io/articles/llm-cost-latency-audit-sample.html) | [StackIntercept source](https://github.com/sidsri14/stack-intercept) | [Email](mailto:sidsri1502@gmail.com)
 
 ## Start with a bounded paid task
 
@@ -15,6 +15,9 @@ Available for remote, paid backend debugging and developer-tooling projects.
   coverage and a short handoff. [Discuss the scope on Upwork](https://www.upwork.com/freelancers/~01f93f1a56b9ef1b8d).
 - **MCP tool or server:** one agreed integration with automated tests.
   [View the existing Project Catalog service](https://www.upwork.com/services/product/development-it-one-model-context-protocol-mcp-tool-or-server-built-with-automated-tests-2116134634537475815).
+- **LLM cost & latency audit:** a bounded review of your call paths with a
+  measurement harness and prioritized findings.
+  [Read a full sample report](https://sidsri14.github.io/articles/llm-cost-latency-audit-sample.html).
 
 We agree the stack, expected behavior, acceptance criteria, price and funded
 milestones before custom work starts. AI assistance is disclosed, and I review
