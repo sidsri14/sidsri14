@@ -13,6 +13,7 @@ Available for remote, paid backend debugging and developer-tooling projects.
 
 - **Backend/API debugging:** one reproducible failure, a focused fix, regression
   coverage and a short handoff. [Discuss the scope on Upwork](https://www.upwork.com/freelancers/~01f93f1a56b9ef1b8d).
+- **48-Hour AI Guardrail Hardening Sprint:** patch SSE boundary fragmentation, runaway tool loop burn, and split-secret leaks with zero-allocation middleware and passing CI tests ($750–$1,500). [Inquire via Email](mailto:sidsri1502@gmail.com?subject=48-Hour%20Guardrail%20Hardening%20Sprint).
 - **MCP tool or server:** one agreed integration with automated tests.
   [View the existing Project Catalog service](https://www.upwork.com/services/product/development-it-one-model-context-protocol-mcp-tool-or-server-built-with-automated-tests-2116134634537475815).
 - **LLM cost & latency audit:** a bounded review of your call paths with a
@@ -52,8 +53,9 @@ An independent PayPal API and webhook prototype with local tests.
 A Rust proxy for OpenAI-compatible LLM APIs with exact caching, optional semantic caching, reactive failover, Prometheus metrics and tenant-scoped behavior. Local mock-upstream tests exercise its API and failure paths.
 
 ### [DriftGuard](https://github.com/sidsri14/driftguard)
+[![GitHub Marketplace](https://img.shields.io/badge/Marketplace-DriftGuard%20CI%20Guard-blue?logo=github&style=flat-square)](https://github.com/marketplace/actions/driftguard-ci-guard)
 
-A local-first CI evaluation engine and pre-commit gate built in Rust. It catches missing environment variables, schema drift, and broken LLM output contracts before merge using Git-diff scoped AST scanning and strict JSON Schema validation.
+A local-first CI evaluation engine and GitHub Action (`uses: sidsri14/driftguard@v1`). It catches missing environment variables, schema drift, and broken LLM output contracts before merge using Git-diff scoped AST scanning and strict JSON Schema validation. Live on GitHub Marketplace and dogfooded across 6 production repositories.
 
 ### [Tempo Z-Spend](https://github.com/sidsri14/tempo-zspend)
 
@@ -65,11 +67,12 @@ An independent static-analysis prototype for Solana programs.
 
 ## Upstream Contributions
 
-**23 merged pull requests in external repositories**, verified November 13, 2026.
+**24 merged pull requests in external repositories**, verified November 18, 2026.
 Selected contributions:
 
 | Repository | Merged contribution |
 | --- | --- |
+| [23andMe/Yamale](https://github.com/23andMe/Yamale/pull/294) | Prevent silent dropping of non-validator literals in any() schema expressions (`master`) |
 | [BerriAI/litellm](https://github.com/BerriAI/litellm/pull/50073) | Bedrock Converse cross-model signed-thinking leak fix (`main`) |
 | [open-telemetry/opentelemetry-python-contrib](https://github.com/open-telemetry/opentelemetry-python-contrib/pull/5003) | Fix Celery span loss on worker child pool recycle (`main`) |
 | [open-telemetry/opentelemetry-python-contrib](https://github.com/open-telemetry/opentelemetry-python-contrib/pull/4982) | Restore logging handlers and formatters on `uninstrument()` (`main`) |
